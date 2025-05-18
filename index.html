@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Respondo App - Todas tus conversaciones en un solo lugar</title>
+    <title>Respondo App - Automatiza y gestiona tus conversaciones</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -11,38 +11,60 @@
     <header>
         <div class="container">
             <h1>Respondo App</h1>
-            <p class="tagline">Todas tus conversaciones de <span id="changing-text"></span><span class="cursor">|</span> en una sola aplicación</p>
+            <p class="tagline">Automatiza y gestiona las conversaciones de <span id="changing-text"></span><span class="cursor">|</span> con IA inteligente</p>
         </div>
     </header>
     <main class="container">
         <section id="about">
-            <h2>Simplifica tu comunicación</h2>
-            <p>Respondo App te permite gestionar todas las conversaciones de tus redes sociales en un único lugar. Olvídate de estar saltando entre aplicaciones para responder a tus clientes.</p>
+            <h2>Potencia tu atención al cliente</h2>
+            <p>Respondo App combina la potencia de la IA con una gestión inteligente de conversaciones. Nuestros chatbots personalizados responden automáticamente a tus clientes, mientras tú mantienes el control total para intervenir cuando sea necesario.</p>
         </section>
         <section id="features">
             <h2>¿Qué ofrecemos?</h2>
             <ul>
                 <li>
-                    <strong>Unificación de plataformas:</strong> Integra todos tus canales sociales como WhatsApp, Instagram, Facebook y Twitter en una sola interfaz intuitiva, eliminando la necesidad de alternar entre múltiples aplicaciones.
+                    <strong>Chatbots con IA personalizada para tu negocio:</strong> Configura respuestas automáticas con un prompt adaptado específicamente a tu empresa, sector y estilo de comunicación. Tu chatbot aprende y mejora con cada interacción.
                 </li>
                 <li>
-                    <strong>Respuestas más eficientes:</strong> Ahorra hasta un 60% de tiempo al gestionar tus comunicaciones desde un único panel. Prioriza conversaciones importantes y responde a tus clientes en cuestión de segundos, no de minutos.
+                    <strong>Control total para administradores:</strong> Supervisa todas las conversaciones en tiempo real, activa o desactiva el bot cuando quieras, y toma el control manual de cualquier chat con un solo clic cuando la situación requiera un toque humano.
                 </li>
                 <li>
-                    <strong>Gestión simplificada:</strong> Organiza automáticamente tus conversaciones por cliente, tema o nivel de urgencia, permitiéndote manejar decenas o cientos de chats simultáneamente sin perder el control.
+                    <strong>Gestión de equipos con permisos personalizables:</strong> Crea perfiles de operadores con diferentes niveles de acceso – desde asignar conversaciones hasta crear nuevos operadores – adaptando los permisos según las necesidades de tu empresa.
                 </li>
                 <li>
-                    <strong>Mensajes siempre disponibles:</strong> Implementamos un sistema de notificaciones inteligentes que garantiza que ningún mensaje importante pase desapercibido, incluso en tus momentos más ocupados.
+                    <strong>Integración multicanal:</strong> Conecta WhatsApp Business API, Instagram, Facebook y más en una única interfaz centralizada. Gestiona todas tus conversaciones sin cambiar de plataforma.
                 </li>
                 <li>
-                    <strong>Experiencia de cliente mejorada:</strong> Ofrece tiempos de respuesta notablemente más rápidos, conversaciones coherentes a través de todos los canales y una atención personalizada que fideliza a tus clientes.
+                    <strong>Integración con Shopify para e-commerce:</strong> Conecta tu tienda online con Respondo App para proporcionar información de productos, verificar pedidos y automatizar respuestas relacionadas con tu catálogo sin esfuerzo.
                 </li>
             </ul>
+        </section>
+        <section id="benefits">
+            <h2>¿Por qué elegir Respondo App?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Ahorra tiempo</h3>
+                    <p>Reduce hasta un 70% el tiempo dedicado a responder consultas repetitivas gracias a la automatización inteligente.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Disponibilidad 24/7</h3>
+                    <p>Tu negocio siempre activo, respondiendo consultas incluso cuando tú no estás disponible.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Escalabilidad</h3>
+                    <p>Gestiona cientos de conversaciones simultáneas sin aumentar tu equipo de atención al cliente.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Consistencia</h3>
+                    <p>Mantén un tono y calidad de respuesta uniforme en todas las interacciones con tus clientes.</p>
+                </div>
+            </div>
         </section>
         <section id="contact">
             <h2>Contacto</h2>
             <p>Email: info@respondo-app.com</p>
             <p>Teléfono: +34 643 050 432</p>
+            <p class="cta">¿Listo para transformar tu atención al cliente? ¡Contáctanos hoy mismo!</p>
         </section>
     </main>
     <footer>
@@ -54,7 +76,7 @@
 
     <script>
         // Array con las palabras que quieres que se alternen
-        const words = ["WhatsApp", "Instagram", "Facebook", "Twitter", "LinkedIn"];
+        const words = ["WhatsApp", "Instagram", "Facebook", "Telegram", "Shopify"];
         let currentIndex = 0;
         let isDeleting = false;
         let text = '';
