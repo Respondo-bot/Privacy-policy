@@ -56,3 +56,18 @@ footer {
 a {
     color: #4a6fa5;
 }
+/* Estilos para el texto rotativo */
+#changing-text {
+    display: inline-block;
+    color: #ffcc00; /* Color destacado para el texto cambiante */
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
