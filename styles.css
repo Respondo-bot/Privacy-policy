@@ -3,71 +3,118 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
 }
+
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+
 header {
     background-color: #4a6fa5;
     color: white;
     padding: 60px 0;
     text-align: center;
 }
+
 header h1 {
     margin-bottom: 15px;
     font-size: 3rem;
+    font-weight: 700;
 }
+
 .tagline {
     font-size: 1.5rem;
+    font-weight: 500;
 }
+
 section {
     padding: 50px 0;
     border-bottom: 1px solid #eee;
 }
+
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #4a6fa5;
     font-size: 2rem;
+    font-weight: 600;
 }
+
 p {
     font-size: 1.1rem;
     margin-bottom: 15px;
+    line-height: 1.8;
 }
+
 ul {
-    list-style-position: inside;
+    list-style-type: none;
     margin-bottom: 20px;
 }
+
 li {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     font-size: 1.1rem;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.7;
 }
+
+li:before {
+    content: "•";
+    color: #4a6fa5;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+li strong {
+    color: #4a6fa5;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
 footer {
     background-color: #f5f5f5;
     padding: 20px 0;
     text-align: center;
+    font-size: 0.9rem;
 }
+
 a {
     color: #4a6fa5;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
+
+a:hover {
+    color: #3d5a8a;
+    text-decoration: underline;
+}
+
 /* Estilos para el texto rotativo */
 #changing-text {
     display: inline-block;
-    color: #ffcc00; /* Color destacado para el texto cambiante */
-    font-weight: bold;
-    transition: opacity 0.5s ease;
+    color: #ffcc00;
+    font-weight: 600;
 }
 
-.fade-out {
-    opacity: 0;
+.cursor {
+    display: inline-block;
+    color: #ffcc00;
+    font-weight: normal;
+    animation: blink 0.7s infinite;
+    margin-left: 1px;
 }
 
-.fade-in {
-    opacity: 1;
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
