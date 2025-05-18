@@ -10,16 +10,14 @@
     <header>
         <div class="container">
             <h1>Respondo App</h1>
-            <p class="tagline">Todas tus conversaciones sociales en una sola aplicación</p>
+            <p class="tagline">Todas tus conversaciones de <span id="changing-text">WhatsApp</span> en una sola aplicación</p>
         </div>
     </header>
-
     <main class="container">
         <section id="about">
             <h2>Simplifica tu comunicación</h2>
             <p>Respondo App te permite gestionar todas las conversaciones de tus redes sociales en un único lugar. Olvídate de estar saltando entre aplicaciones para responder a tus clientes.</p>
         </section>
-
         <section id="features">
             <h2>¿Qué ofrecemos?</h2>
             <ul>
@@ -30,20 +28,48 @@
                 <li>Mejora la experiencia de tus clientes</li>
             </ul>
         </section>
-
         <section id="contact">
             <h2>Contacto</h2>
             <p>Email: info@respondo-app.com</p>
             <p>Teléfono: +34 643 050 432</p>
         </section>
     </main>
-
     <footer>
         <div class="container">
             <p>&copy; 2025 Respondo App - Todos los derechos reservados</p>
-            <p><a href="[URL DE TU POLÍTICA DE PRIVACIDAD EXISTENTE]">Política de Privacidad</a></p>
+            <p><a href="https://github.com/YourUsername/YourRepository/privacy-policy.html">Política de Privacidad</a></p>
         </div>
     </footer>
+
+    <script>
+        // Array con las palabras que quieres que se alternen
+        const words = ["WhatsApp", "Instagram", "Facebook", "Twitter", "LinkedIn"];
+        let currentIndex = 0;
+        
+        // Función para cambiar el texto
+        function changeText() {
+            const textElement = document.getElementById('changing-text');
+            
+            // Añadir clase para animación de salida
+            textElement.classList.add('fade-out');
+            
+            setTimeout(() => {
+                // Cambiar el texto
+                currentIndex = (currentIndex + 1) % words.length;
+                textElement.textContent = words[currentIndex];
+                
+                // Quitar clase de animación de salida y añadir animación de entrada
+                textElement.classList.remove('fade-out');
+                textElement.classList.add('fade-in');
+                
+                setTimeout(() => {
+                    textElement.classList.remove('fade-in');
+                }, 500);
+            }, 500);
+        }
+        
+        // Cambiar el texto cada 3 segundos
+        setInterval(changeText, 3000);
+    </script>
 </body>
 </html>
-
