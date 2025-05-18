@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Respondo App - Todas tus conversaciones en un solo lugar</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Respondo App</h1>
-            <p class="tagline">Todas tus conversaciones de <span id="changing-text">WhatsApp</span> en una sola aplicación</p>
+            <p class="tagline">Todas tus conversaciones de <span id="changing-text"></span><span class="cursor">|</span> en una sola aplicación</p>
         </div>
     </header>
     <main class="container">
@@ -21,11 +22,21 @@
         <section id="features">
             <h2>¿Qué ofrecemos?</h2>
             <ul>
-                <li>Unifica WhatsApp, Instagram, Facebook y más en una sola interfaz</li>
-                <li>Responde más rápido a tus clientes</li>
-                <li>Gestiona fácilmente múltiples conversaciones</li>
-                <li>Nunca pierdas un mensaje importante</li>
-                <li>Mejora la experiencia de tus clientes</li>
+                <li>
+                    <strong>Unificación de plataformas:</strong> Integra todos tus canales sociales como WhatsApp, Instagram, Facebook y Twitter en una sola interfaz intuitiva, eliminando la necesidad de alternar entre múltiples aplicaciones.
+                </li>
+                <li>
+                    <strong>Respuestas más eficientes:</strong> Ahorra hasta un 60% de tiempo al gestionar tus comunicaciones desde un único panel. Prioriza conversaciones importantes y responde a tus clientes en cuestión de segundos, no de minutos.
+                </li>
+                <li>
+                    <strong>Gestión simplificada:</strong> Organiza automáticamente tus conversaciones por cliente, tema o nivel de urgencia, permitiéndote manejar decenas o cientos de chats simultáneamente sin perder el control.
+                </li>
+                <li>
+                    <strong>Mensajes siempre disponibles:</strong> Implementamos un sistema de notificaciones inteligentes que garantiza que ningún mensaje importante pase desapercibido, incluso en tus momentos más ocupados.
+                </li>
+                <li>
+                    <strong>Experiencia de cliente mejorada:</strong> Ofrece tiempos de respuesta notablemente más rápidos, conversaciones coherentes a través de todos los canales y una atención personalizada que fideliza a tus clientes.
+                </li>
             </ul>
         </section>
         <section id="contact">
@@ -45,31 +56,58 @@
         // Array con las palabras que quieres que se alternen
         const words = ["WhatsApp", "Instagram", "Facebook", "Twitter", "LinkedIn"];
         let currentIndex = 0;
+        let isDeleting = false;
+        let text = '';
+        let charIndex = 0;
+        let typingSpeed = 100; // Velocidad base de escritura (ms)
+        let deletingSpeed = 50; // Velocidad base de borrado (ms)
+        let pauseEnd = 1000; // Pausa después de escribir la palabra completa
         
-        // Función para cambiar el texto
-        function changeText() {
-            const textElement = document.getElementById('changing-text');
+        function type() {
+            const currentWord = words[currentIndex];
             
-            // Añadir clase para animación de salida
-            textElement.classList.add('fade-out');
+            // Efecto de escribir/borrar
+            if (isDeleting) {
+                // Borrar caracteres
+                text = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = deletingSpeed;
+            } else {
+                // Añadir caracteres
+                text = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100 - Math.random() * 50; // Velocidad variable al escribir
+            }
             
-            setTimeout(() => {
-                // Cambiar el texto
+            // Actualizar el texto
+            document.getElementById('changing-text').textContent = text;
+            
+            // Gestión de estados
+            if (!isDeleting && charIndex === currentWord.length) {
+                // Palabra completa escrita - pausa y comienza a borrar
+                typingSpeed = pauseEnd;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Palabra completamente borrada - pasa a la siguiente
+                isDeleting = false;
                 currentIndex = (currentIndex + 1) % words.length;
-                textElement.textContent = words[currentIndex];
-                
-                // Quitar clase de animación de salida y añadir animación de entrada
-                textElement.classList.remove('fade-out');
-                textElement.classList.add('fade-in');
-                
-                setTimeout(() => {
-                    textElement.classList.remove('fade-in');
-                }, 500);
-            }, 500);
+                typingSpeed = 500; // Pausa antes de comenzar la siguiente palabra
+            }
+            
+            // Continuar la animación
+            setTimeout(type, typingSpeed);
         }
         
-        // Cambiar el texto cada 3 segundos
-        setInterval(changeText, 3000);
+        // Iniciar efecto de escritura
+        window.onload = function() {
+            setTimeout(type, 1000);
+            
+            // Efecto de parpadeo del cursor
+            setInterval(function() {
+                const cursor = document.querySelector('.cursor');
+                cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+            }, 500);
+        };
     </script>
 </body>
 </html>
